@@ -6,6 +6,8 @@ namespace EncontroRemoto
     {
         public string? nome { get; set; }
         public Endereco? endereco { get; set; }        
-        public abstract void PagarImposto(float salario);
+        public float rendimento { get; set; }      
+        public abstract double PagarImposto(float salario);
+        
     }
 }

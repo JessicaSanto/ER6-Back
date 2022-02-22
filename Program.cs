@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace EncontroRemoto
 {
@@ -7,6 +8,7 @@ namespace EncontroRemoto
     {
         static void Main(string[] args)
         {
+
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.BackgroundColor = ConsoleColor.White;
@@ -47,6 +49,7 @@ namespace EncontroRemoto
 
                         novapf.endereco = endPf;
                         novapf.cpf = "123456789";
+                        novapf.rendimento = 1200;
                         novapf.dataNascimento = new DateTime(2000, 02, 20);
                         novapf.nome = "Jessica";
 
@@ -85,6 +88,7 @@ namespace EncontroRemoto
 
                         novapj.endereco = endPj;
                         novapj.cnpj = "12345678900001";
+                        novapj.rendimento = 8000;
                         novapj.razaoSocial = "Pessoa Juridica";
 
                         break;
@@ -99,26 +103,26 @@ namespace EncontroRemoto
 
                         break;
                 }
-                } while (opcao != "0") ;
-            }
+            } while (opcao != "0");
+        }
 
         static void BarraCarregamento(string textoCarregamento)
+        {
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write(textoCarregamento);
+            Thread.Sleep(500);
+
+
+            for (var contador = 0; contador < 10; contador++)
             {
-                Console.ResetColor();
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write(textoCarregamento);
+
+                Console.Write($".");
                 Thread.Sleep(500);
-
-
-                for (var contador = 0; contador < 10; contador++)
-                {
-
-                    Console.Write($".");
-                    Thread.Sleep(500);
-                }
-                Console.ResetColor();
-
-
             }
+            Console.ResetColor();
+
+
+        }
     }
 }
